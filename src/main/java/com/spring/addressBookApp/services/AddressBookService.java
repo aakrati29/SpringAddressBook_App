@@ -17,11 +17,10 @@ public class AddressBookService {
         this.addressBookRepo = addressBookRepo;
     }
 
-    @GetMapping("/add")
-    public AddressBookModel add(){
+    public AddressBookModel add(AddressBookDto addressBookDto){
         AddressBookModel addressBook = new AddressBookModel();
-        addressBook.setName(addressBook.getName());
-        addressBook.setPhoneNumber(addressBook.getPhoneNumber());
+        addressBook.setName(addressBookDto.getName());
+        addressBook.setPhoneNumber(addressBookDto.getPhoneNumber());
         return addressBookRepo.save(addressBook);
     }
 
